@@ -30,16 +30,15 @@ async function multiplyEvens(arr){
 		}, 3000)
 		
 	}) 
+const multiplied = await multiplyEvens(evens);
+    output.innerText =multiplied.join(", "); 
 	
 }
 
-async function processArray() {
-    const evens = await EvenArr([1, 2, 3, 4, 5, 6]);
-    output.innerText =  evens.join(", "); 
 
-    const multiplied = await multiplyEvens(evens);
-    output.innerText =multiplied.join(", "); 
-}
 
-processArray();
+  
+
+
+
 
