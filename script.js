@@ -1,29 +1,22 @@
-document.addEventListener("DOMContentLoaded", () => {
-let output=document.querySelector("output")
-let promise=new promise((resolve){
-	 setTimeout(() => resolve([1, 2, 3, 4]), 3000);
-})
-.then((array)=>{
-	 return new Promise((resolve) => {
-            setTimeout(() => {
-                let evens = array.filter(num => num % 2 === 0); // Step 1: Filter even numbers
-                outputDiv.textContent = evens.join(","); // Update DOM
-                resolve(evens);
-            }, 1000);
-        });
-})
-promise.then(result){
-	console.log(result)
-}
-.then((evens){=>
-	return new promise((resolve){
-		 setTimeout(() => {
-                let doubled = evens.map(num => num * 2); // Step 2: Multiply by 2
-                outputDiv.textContent = doubled.join(","); // Update DOM
-                resolve(doubled);
-            }, 2000);
-		
-	})
-	  })
-})
+document.addEventListener("DOMContentLoaded", async () => {
+    const outputDiv = document.getElementById("output");
+
+    function delay(ms, value) {
+        return new Promise(resolve => setTimeout(() => resolve(value), ms));
+    }
+
+    try {
+        let array = await delay(3000, [1, 2, 3, 4]); // Initial delay
+        let evens = array.filter(num => num % 2 === 0);
+
+        await delay(1000); // Wait 1 second
+        outputDiv.textContent = evens.join(",");
+
+        let doubled = evens.map(num => num * 2);
+        await delay(2000); // Wait 2 more seconds
+        outputDiv.textContent = doubled.join(",");
+    } catch (error) {
+        console.error("Error:", error);
+    }
+});
 
