@@ -1,4 +1,4 @@
-
+document.addEventListener("DOMContentLoaded", () => {
 let output=document.querySelector("output")
 let promise=new promise((resolve){
 	 setTimeout(() => resolve([1, 2, 3, 4]), 3000);
@@ -24,5 +24,6 @@ promise.then(result){
             }, 2000);
 		
 	})
+	  })
 })
 
